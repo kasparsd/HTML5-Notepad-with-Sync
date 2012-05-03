@@ -228,6 +228,7 @@ jQuery(document).ready(function($) {
 	
 	function sync() {
 		if (navigator.onLine) {
+		    localStorage.setItem('clientime', (new Date().getTime() + ''));
 			$.post('sync.php', localStorage, function(data) {
 				console.log(data);
 				localStorage.setItem('index', JSON.stringify(data.index));
@@ -276,7 +277,7 @@ jQuery(document).ready(function($) {
 			if (title === '')
 				title = 'Untitled';
 			if (val['timestamp'] !== 0)
-				$items.push('<li class="e-' + key + '"><a class="edit" href="#' + key + '">' + title + '</a> <time></time> <a class="delete" href="#' + key + '">-</a></li>');
+				$items.push('<li class="e-' + key + '"><a class="edit" href="#' + key + '">' + title + '</a> <time>'+ (new Date(parseInt(val['timestamp']))) + ' </time> <a class="delete" href="#' + key + '">-</a></li>');
   		});
   		$('#entries ul').hide().html($items.reverse().join('')).show();
 	}
