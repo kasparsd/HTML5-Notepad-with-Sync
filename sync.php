@@ -2,14 +2,19 @@
 
 error_reporting(E_ERROR);
 
-define('DATA_DIR', 'entries'); // use this to protect files from being publicly viewable
-define("USERNAME", 'demo');
-define('PASSWORD', 'demo');
+// if config file exists then load it
+if(file_exists('config.php')) {
+  require_once('config.php');
+}
 
-if (($_SERVER['PHP_AUTH_USER'] !== USERNAME) || ($_SERVER['PHP_AUTH_PW'] !== PASSWORD)) {
-    header('WWW-Authenticate: Basic realm="Cloud Notes"');
-    header('HTTP/1.0 401 Unauthorized');
-    exit;
+define('DATA_DIR', isset($data_dir) ? $data_dir : 'entries'); // use this to protect files from being publicly viewable
+
+if (isset($username) && isset($password)) {
+    if (($_SERVER['PHP_AUTH_USER'] !== $username) || ($_SERVER['PHP_AUTH_PW'] !== $password)) {
+        header('WWW-Authenticate: Basic realm="Cloud Notes"');
+        header('HTTP/1.0 401 Unauthorized');
+        exit;
+    }
 }
 
 header('Content-type: application/json; charset=utf-8');
