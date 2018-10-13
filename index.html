@@ -7,11 +7,10 @@
 	<!-- <meta http-equiv="pragma" content="no-cache" /> -->
 
 	<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0" />
-	<meta name="viewport" content="width=device-width" />   
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-    
-    <link rel="stylesheet" type="text/css" href="js/wysiwym/wysiwym.css" />
+	<meta name="viewport" content="width=device-width" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<link rel="stylesheet" type="text/css" href="js/wysiwym/wysiwym.css" />
 
 	<style>	
 		body { font:16px/1.5 arial; background:#eee; margin:0; padding:2em 0; }
@@ -114,9 +113,9 @@ jQuery(document).ready(function($) {
 	sync();
 
 	$(window).bind('load hashchange', function () {
-    	$('a[href="'+ window.location.hash +'"]').filter(':not(.delete)').trigger('click');
-    	console.log($('a[href="'+ window.location.hash +'"]').filter(':not(.delete)'));
-    	return false;
+    		$('a[href="'+ window.location.hash +'"]').filter(':not(.delete)').trigger('click');
+    		console.log($('a[href="'+ window.location.hash +'"]').filter(':not(.delete)'));
+    		return false;
 	});
 
 	$('textarea').wysiwym(Wysiwym.Markdown, { helpEnabled: false });
