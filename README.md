@@ -10,7 +10,7 @@ Please [see the updated and modern version of the notepad](http://sources.vsta.o
 3. Make that folder writable (CHMOD 0777).
 4. Edit `sync.php` and specify your new `DATA_DIR` (the one you just renamed).
 5. In `sync.php` change username and password to something unique.
-6. Done!
+6. Finally Done!
 
 
 ## Credits
